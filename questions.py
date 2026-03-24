@@ -30,7 +30,8 @@ while attempts > 0:
 
     # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
-        print("¡Ganaste!")
+        print("¡Ganaste!\n"
+              f"Tu puntaje: {attempts + 6}")
         break
 
     print(f"Intentos restantes: {attempts}")
@@ -53,5 +54,6 @@ while attempts > 0:
     print()
 
 else:
-    print(f"¡Perdiste! La palabra era: {word}")
+    print(f"¡Perdiste! La palabra era: {word}\n"
+          f" Tu puntaje: {attempts}")
     
