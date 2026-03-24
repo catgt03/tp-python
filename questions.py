@@ -1,22 +1,25 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-word = random.choice(words)
-guessed = []
-attempts = 6
+words = {
+    "colores" : ["azul", "amarillo", "verde", "rojo", "rosa" ],
+    "animales" : ["pato", "perro", "gato", "ardilla", "ballena"],
+    "comidas" : ["ravioles", "arroz", "milanesa", "empanada", "pizza"]
+}
 
 print("¡Bienvenido al Ahorcado!")
-print()
+print("Categorías de palabras:")
+for clave in words:
+    print(f" - {clave}")
+
+category = input("Elegí una categoría: ").lower()
+
+while category not in words:
+    print("Categoría no válida \n")
+    category = input("Elegí una categoría: ").lower()
+
+word = random.choice(words[category])
+guessed = []
+attempts = 6
 
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
@@ -49,11 +52,11 @@ while attempts > 0:
             attempts -= 1
             print("Esa letra no está en la palabra.")
     else:
-        print("Entrada no válida")
+        print("Entrada no válida \n")
         continue
     print()
 
 else:
     print(f"¡Perdiste! La palabra era: {word}\n"
-          f" Tu puntaje: {attempts}")
+          f"Tu puntaje: {attempts}")
     
